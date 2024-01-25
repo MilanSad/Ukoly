@@ -100,8 +100,8 @@ def start_square(size):
 
 
 def move(x_poz, y_poz, board, move_count):
-    if move_count == len(board) * len(board[0]):
-        return True
+ #   if move_count == len(board) * len(board[0]):
+  #      return True
 
 
     valid_moves = [[2, 1], [2, -1], [-2, 1], [-2, -1], [1, 2], [1, -2], [-1, 1], [-1, -1]]
@@ -112,7 +112,11 @@ def move(x_poz, y_poz, board, move_count):
         y_new = y_poz + moves[1]
 
         if valid_stay(x_new, y_new, board):
+            print(board[x_new][y_new])
+            print()
             board[x_new][x_new] = 1
+            print(board[x_new][y_new])
+            print()
             if move(x_new, y_new, board, move_count + 1):
                 return True
             board[x_new][y_new] = 0
