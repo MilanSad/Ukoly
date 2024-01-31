@@ -15,7 +15,7 @@ def move(x_pos, y_pos, board, move_count):
     if move_count == len(board) * len(board[0]):
         return True
 
-    valid_moves = [[2, 1], [2, -1], [-2, 1], [-2, -1], [1, 2], [1, -2], [-1, 1], [-1, -1]]
+    valid_moves = [[2, 1], [2, -1], [-2, 1], [-2, -1], [1, 2], [1, -2], [-1, 2], [-1, -2]]
 
     for moves in valid_moves:
         x_new = x_pos + moves[0]
@@ -37,7 +37,10 @@ def valid_stay(move_x, move_y, board):
 def print_board(board):
     for i in board:
         for j in i:
-            print(j, end=" ")
+            if j < 10:
+                print(f" {j}", end=" ")
+            else:
+                print(j, end=" ")
         print()
 
 size_board = 6

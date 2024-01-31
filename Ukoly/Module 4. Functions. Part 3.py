@@ -64,7 +64,7 @@ def search_number(number, guess_number):
         search_number(number, guess_number_input(),)
     return attempts
 
-# guess_number_input()
+guess_number_input()
 search_number(number, guess_number_input())  
 print(f"Great, you have {attempts} attempts")
 """
@@ -90,26 +90,26 @@ def start_square(size):
     y_position = int(input("Enter start position column(1-6):  ")) - 1
     board[x_position][y_position] = 1
 
-    if move(x_position, y_position,board, move_count=1):
+    if move(x_position, y_position, board, move_count=1):
         print("Solution:")
         print_board(board)
     else:
         print("No solution")
 
 
-def move(x_poz, y_poz, board, move_count):
+def move(x_pos, y_pos, board, move_count):
     if move_count == len(board) * len(board[0]):
         return True
 
-    valid_moves = [[2, 1], [2, -1], [-2, 1], [-2, -1], [1, 2], [1, -2], [-1, 1], [-1, -1]]
+    valid_moves = [[2, 1], [2, -1], [-2, 1], [-2, -1], [1, 2], [1, -2], [-1, 2], [-1, -2]]
 
     for moves in valid_moves:
-        x_new = x_poz + moves[0]
-        y_new = y_poz + moves[1]
+        x_new = x_pos + moves[0]
+        y_new = y_pos + moves[1]
         if not valid_stay(x_new, y_new, board):
             continue
 
-        board[x_new][x_new] = move_count + 1
+        board[x_new][y_new] = move_count + 1
         if move(x_new, y_new, board, move_count + 1):
             return True
         board[x_new][y_new] = 0
@@ -118,14 +118,18 @@ def move(x_poz, y_poz, board, move_count):
 
 
 def valid_stay(move_x, move_y, board):
-    if 0 <= move_x < len(board) and 0 <= move_y < len(board[0]) and board[move_x][move_y] == 0:
-        return True
+    if 0 <= move_x < len(board) and 0 <= move_y < len(board[0]):
+        if board[move_x][move_y] == 0:
+            return True
 
 
 def print_board(board):
     for i in board:
         for j in i:
-            print(j, end=" ")
+            if j < 10:
+                print(f" {j}", end=" ")
+            else:
+                print(j, end=" ")
         print()
 
 
