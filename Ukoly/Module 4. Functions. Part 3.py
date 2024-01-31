@@ -86,13 +86,11 @@ recursion in your game.
 
 def start_square(size):
     board = [[0 for x in range(size)] for _ in range(size)]
+    x_position = int(input("Enter start position row (1 -6):  ")) - 1
+    y_position = int(input("Enter start position column(1-6):  ")) - 1
+    board[x_position][y_position] = 1
 
-    x_pozition = 1 #(int(input("Enter start pozition row (1 -6):  "))) -1
-    y_pozition = 1 #(int(input("Enter start pozition column(1-6):  "))) - 1
-
-    board[x_pozition][y_pozition] = 1
-
-    if move(x_pozition, y_pozition,board, move_count=1):
+    if move(x_position, y_position,board, move_count=1):
         print("Solution:")
         print_board(board)
     else:
@@ -100,34 +98,31 @@ def start_square(size):
 
 
 def move(x_poz, y_poz, board, move_count):
- #   if move_count == len(board) * len(board[0]):
-  #      return True
-
+    if move_count == len(board) * len(board[0]):
+        return True
 
     valid_moves = [[2, 1], [2, -1], [-2, 1], [-2, -1], [1, 2], [1, -2], [-1, 1], [-1, -1]]
 
     for moves in valid_moves:
-
         x_new = x_poz + moves[0]
         y_new = y_poz + moves[1]
+        if not valid_stay(x_new, y_new, board):
+            continue
 
-        if valid_stay(x_new, y_new, board):
-            print(board[x_new][y_new])
-            print()
-            board[x_new][x_new] = 1
-            print(board[x_new][y_new])
-            print()
-            if move(x_new, y_new, board, move_count + 1):
-                return True
-            board[x_new][y_new] = 0
+        board[x_new][x_new] = move_count + 1
+        if move(x_new, y_new, board, move_count + 1):
+            return True
+        board[x_new][y_new] = 0
 
     return False
 
+
 def valid_stay(move_x, move_y, board):
-    if 0 <= move_x <= len(board) and 0 <= move_y <= len(board[0]) and board[move_x][move_y] == 0:
+    if 0 <= move_x < len(board) and 0 <= move_y < len(board[0]) and board[move_x][move_y] == 0:
         return True
 
-def print_board(board): # tisk pole šachovnice  OK
+
+def print_board(board):
     for i in board:
         for j in i:
             print(j, end=" ")
@@ -135,5 +130,5 @@ def print_board(board): # tisk pole šachovnice  OK
 
 
 size_board = 6
-start_square(6)
+start_square(size_board)
 
