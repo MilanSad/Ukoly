@@ -5,8 +5,8 @@ Task 1
 Write a recursive function for finding the greatest common
 divisor of two integers.
 """
-# Tady jsem si dal, pul soboty jsem se trápil... chatGPT mi dal ještě lepší, ale vygoogloval jsem tento výpočet 
-"""def number_find(num1,num2):
+
+def number_find(num1,num2):
     if num1 == 0:
         return num2
     elif num2 == 0:
@@ -19,7 +19,7 @@ divisor of two integers.
         return number_find((num2 - num1), num1)
     
 print(number_find(36,48))
-"""
+
 print("---------------Task 2 ---------------")
 """Task 2
 Develop a game of Bulls and Cows. The program chooses
@@ -29,8 +29,7 @@ the number are guessed (bulls), and how many digits are guessed
 and stand in the right place (cows). After guessing the number,
 print the number of user’s attempts. Use recursion in your game.
 """
-"""
-import random 
+import random
 
 number = (random.randrange(1000,10000))
 print (number)
@@ -38,36 +37,39 @@ print (number)
 attempts = 0
 number = str(number)
 
+
 def guess_number_input():
-  while True:
-    guess_number = input(("Insert your number (4 digit):"))
-    if guess_number.isdigit() and len(guess_number) == 4:
-      return guess_number
-    else:
-      print("Insert 4 digit number!")
+    while True:
+        guess_number = input(("Insert your number (4 digit):"))
+        if guess_number.isdigit() and len(guess_number) == 4:
+            return guess_number
+        else:
+            print("Insert 4 digit number!")
+
 
 def search_number(number, guess_number):
     j = 0
     bulls = 0
     cows = 0
-    for i in guess_number:
-        if i in number:
+    for i in number:
+      if i in guess_number:
             bulls += 1
     for i in guess_number:
         if i == number[j]:
-           cows +=1
+            cows += 1
         j += 1
     print (f"Bulls: {bulls} Cow: {cows}")
     if cows != 4:
         global attempts
         attempts += 1
-        search_number(number, guess_number_input(),)
+        search_number(number, guess_number_input())
     return attempts
 
-guess_number_input()
-search_number(number, guess_number_input())  
+search_number(number, guess_number_input())
+
 print(f"Great, you have {attempts} attempts")
-"""
+
+
 
 print("---------------Task 2 ---------------")
 """
