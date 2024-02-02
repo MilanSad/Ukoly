@@ -28,29 +28,60 @@ a dictionary to store information.
 players = {"Milan": 178, "Robert": 185, "Richard": 186}
 
 
-def add():
-    full_name = input("Enter name of player: ")
-    height = int(input("Enter height of player: "))
-    players[full_name] = height
+def add(full_name,height):
+     players[full_name] = height
 
 
 def delete():
-    delete_item = input("Enter name for delete")
+    delete_item = input("Enter name for delete: ")
+    players.pop(delete_item)
 
+
+def search():
+    search_name = input("Enter search name: ")
+    if search_name in players:
+        print(f"{search_name} is in Great basketball players.")
+    else:
+        print(f"{search_name} isn´t in Great basketball players.")
+
+
+def print_players():
+    print(f"Great basketball players: \n {players},\n {menu} ")
+
+"""
+def replace():
+    pass
+    replace_name = input("Enter search name: ")
+    replace_height = input("Enter search name: ")
+    """
+#todo    if replace_player in players:
+#todo        players[]
+#todo    else:
+#todo        print(f"{replace_player} isn´t in Great basketball players.")
 
 while True:
-   menu = """
+    menu = (
+        """
     1 = add player
     2 = delete player
     3 = search player
-    4 replace player
-    5 = END"""
-    print(menu)
-    print(f"Great basketball players: \n {players} ")
+    4 = replace player
+    5 = END
+    """)
+    print()
+    print_players()
 
     choice = int(input("Your choice is: "))
 
     if choice == 1:
-        add()
+        full_name = input("Enter name of player: ")
+        height = int(input("Enter height of player: "))
+        add(full_name,height)
     if choice == 2:
         delete()
+    if choice == 3:
+        search()
+    if choice == 4:
+        replace()
+    if choice == 5:
+        break
