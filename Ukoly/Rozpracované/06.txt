@@ -1,0 +1,1 @@
+“pre task3 a 4 jednotlivu osobu /knihu uchovávajte v dictionary ale potom zoznam jednotlivých knih alebo osob uchovavajte v zozname.”
