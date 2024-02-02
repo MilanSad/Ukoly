@@ -24,3 +24,33 @@ players. Store the player’s full name and height. Provide
 the possibility to add, delete, search, and replace data. Use
 a dictionary to store information.
 """
+
+players = {"Milan": 178, "Robert": 185, "Richard": 186}
+
+
+def add():
+    full_name = input("Enter name of player: ")
+    height = int(input("Enter height of player: "))
+    players[full_name] = height
+
+
+def delete():
+    delete_item = input("Enter name for delete")
+
+
+while True:
+   menu = """
+    1 = add player
+    2 = delete player
+    3 = search player
+    4 replace player
+    5 = END"""
+    print(menu)
+    print(f"Great basketball players: \n {players} ")
+
+    choice = int(input("Your choice is: "))
+
+    if choice == 1:
+        add()
+    if choice == 2:
+        delete()
