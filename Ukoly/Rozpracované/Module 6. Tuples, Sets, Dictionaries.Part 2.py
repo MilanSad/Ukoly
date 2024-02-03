@@ -1,9 +1,5 @@
 """
-Task 2
-Create an app English-French Dictionary. Store a word
-in English and its French translation. Provide the possibility
-to add, delete, search, and replace data. Use a dictionary to
-store information.
+
 Task 3
 Create an app Company. Store the following information
 about a person: full name, phone number, corporate email,
@@ -23,13 +19,15 @@ Create an app that stores information about great basketball
 players. Store the player’s full name and height. Provide
 the possibility to add, delete, search, and replace data. Use
 a dictionary to store information.
-"""
+
 
 players = {"Milan": 178, "Robert": 185, "Richard": 186}
 
 
-def add(full_name,height):
-     players[full_name] = height
+def add():
+    full_name = input("Enter name of player: ")
+    height = int(input("Enter height of player: "))
+    players[full_name] = height
 
 
 def delete():
@@ -48,16 +46,14 @@ def search():
 def print_players():
     print(f"Great basketball players: \n {players},\n {menu} ")
 
-"""
+
 def replace():
-    pass
-    replace_name = input("Enter search name: ")
-    replace_height = input("Enter search name: ")
-    """
-#todo    if replace_player in players:
-#todo        players[]
-#todo    else:
-#todo        print(f"{replace_player} isn´t in Great basketball players.")
+    search_name = input("Enter search name: ")
+    new_height = input("Enter new height: ")
+    if search_name in players:
+        players[search_name] = new_height
+    else:
+        print(f"{search_name} isn´t in Great basketball players.")
 
 while True:
     menu = (
@@ -74,9 +70,7 @@ while True:
     choice = int(input("Your choice is: "))
 
     if choice == 1:
-        full_name = input("Enter name of player: ")
-        height = int(input("Enter height of player: "))
-        add(full_name,height)
+        add()
     if choice == 2:
         delete()
     if choice == 3:
@@ -85,3 +79,12 @@ while True:
         replace()
     if choice == 5:
         break
+
+
+Task 2
+Create an app English-French Dictionary. Store a word
+in English and its French translation. Provide the possibility
+to add, delete, search, and replace data. Use a dictionary to
+store information.
+"""
+
