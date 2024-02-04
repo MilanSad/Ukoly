@@ -57,13 +57,9 @@ def replace():
 
 while True:
     menu = (
-        """
-    1 = add player
-    2 = delete player
-    3 = search player
-    4 = replace player
-    5 = END
-    """)
+        
+#todo 
+    )
     print()
     print_players()
 
@@ -88,3 +84,76 @@ to add, delete, search, and replace data. Use a dictionary to
 store information.
 """
 
+dictionary = {"Hello": "Bonjour", "and": "at"}
+
+
+def add(english_word, french_word):
+    dictionary[english_word] = french_word
+
+
+def delete(del_item):
+    dictionary.pop(del_item)
+
+
+def search():
+    search_word = input("Enter search word: ")
+    if search_word in dictionary:
+        print(f"{search_word} in French is: {dictionary.get(search_word)} ")
+    else:
+        print(f"{search_word} isn´t in dictionary.")
+
+
+def print_dictionary():
+    print(f"English-French Dictionary: \n {dictionary}")
+
+
+def replace():
+    english_word = input("Enter English word: ")
+    if english_word in dictionary:
+        new_french_word = input("Enter new French word: ")
+        dictionary[english_word] = new_french_word
+    else:
+        print(f"{english_word} isn´t in dictionary")
+
+
+
+while True:
+    menu = (
+        """
+    1 = add player
+    2 = delete player
+    3 = search player
+    4 = replace player
+    5 = END
+    """)
+    print()
+    print_dictionary()
+    print(menu)
+    try:
+        choice = int(input("Your choice is (1-5): "))
+    except ValueError:
+        print("Choice only number 1 -5 !!!")
+        continue
+
+    if choice >= 0 or choice <= 5:
+        if choice == 1:
+            english_word = input("Enter English word: ")
+            french_word = (input("Enter French word: "))
+            add(english_word, french_word)
+
+        if choice == 2:
+            delete_item = input("Enter English for delete: ")
+            if delete_item in dictionary:
+                delete(delete_item)
+            else:
+                print(f"{delete_item} is in´t in dictionary")
+
+        if choice == 3:
+            search()
+
+        if choice == 4:
+            replace()
+        if choice == 5:
+            break
+    else:
+        print("Bad choice")
