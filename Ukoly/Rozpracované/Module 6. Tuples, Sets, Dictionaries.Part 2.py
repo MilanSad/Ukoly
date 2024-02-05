@@ -114,10 +114,10 @@ def replace():
 while True:
     menu = (
         # todo
- #   1 = add player
-  #  2 = delete player
-   # 3 = search player
-   # 4 = replace player
+ #   1 = add words
+  #  2 = delete words
+   # 3 = search word
+   # 4 = replace words
    # 5 = END
     )
     print()
@@ -161,3 +161,53 @@ job title, room number, skype. Provide the possibility to add,
 delete, search, and replace data. Use a dictionary to store
 information.
 """
+
+person_info = [{"full_name": "Milan Sadilek", "phone_number": 777234535,
+"email": "milansadilek@post.cz", "job_title": "Bussines manager", "room_number":  777,
+"skype": "milan_sadilek"},
+{"full_name": "Miloš Hlavatý", "phone_number": 578952487,
+"email": "hlavaty@email.cz", "job_title": "developer", "room_number":  555,
+"skype": "hlavac"}]
+
+
+print(person_info)
+
+while True:
+    menu = ("""
+ #   1 = add person
+  #  2 = delete person
+   # 3 = search person
+   # 4 = replace person data
+   # 5 = END
+    """)
+    print()
+    print(person_info)
+    print(menu)
+    try:
+        choice = int(input("Your choice is (1-5): "))
+    except ValueError:
+        print("Choice only number 1 -5 !!!")
+        continue
+
+    if choice >= 0 or choice <= 5:
+        if choice == 1:
+            english_word = input("Enter English word: ")
+            french_word = (input("Enter French word: "))
+            add(english_word, french_word)
+
+        if choice == 2:
+            delete_item = input("Enter English for delete: ")
+            if delete_item in dictionary:
+                delete(delete_item)
+            else:
+                print(f"{delete_item} is in´t in dictionary")
+
+        if choice == 3:
+            search()
+
+        if choice == 4:
+            replace()
+        if choice == 5:
+            break
+    else:
+        print("Bad choice")
