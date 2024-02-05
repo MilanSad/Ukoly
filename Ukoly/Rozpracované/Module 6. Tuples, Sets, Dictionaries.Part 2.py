@@ -1,11 +1,6 @@
 """
 
-Task 3
-Create an app Company. Store the following information
-about a person: full name, phone number, corporate email,
-job title, room number, skype. Provide the possibility to add,
-delete, search, and replace data. Use a dictionary to store
-information.
+
 Task 4
 Create an app Book Collection. Store the following information
 about books: author, title, genre, year of release,
@@ -82,7 +77,7 @@ Create an app English-French Dictionary. Store a word
 in English and its French translation. Provide the possibility
 to add, delete, search, and replace data. Use a dictionary to
 store information.
-"""
+
 
 dictionary = {"Hello": "Bonjour", "and": "at"}
 
@@ -116,16 +111,15 @@ def replace():
         print(f"{english_word} isn´t in dictionary")
 
 
-
 while True:
     menu = (
-        """
-    1 = add player
-    2 = delete player
-    3 = search player
-    4 = replace player
-    5 = END
-    """)
+        # todo
+ #   1 = add player
+  #  2 = delete player
+   # 3 = search player
+   # 4 = replace player
+   # 5 = END
+    )
     print()
     print_dictionary()
     print(menu)
@@ -157,3 +151,13 @@ while True:
             break
     else:
         print("Bad choice")
+
+"""
+"""
+Task 3
+Create an app Company. Store the following information
+about a person: full name, phone number, corporate email,
+job title, room number, skype. Provide the possibility to add,
+delete, search, and replace data. Use a dictionary to store
+information.
+"""
