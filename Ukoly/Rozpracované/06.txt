@@ -1,1 +1,14 @@
 “pre task3 a 4 jednotlivu osobu /knihu uchovávajte v dictionary ale potom zoznam jednotlivých knih alebo osob uchovavajte v zozname.”
+
+
+os.system('cls')
+
+"""
+    1 = add player
+    2 = delete player
+    3 = search player
+    4 = replace player
+    5 = END
+"""
+
+

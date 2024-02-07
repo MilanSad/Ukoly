@@ -170,18 +170,27 @@ person_info = [{"full_name": "Milan Sadilek", "phone_number": 777234535,
 "skype": "hlavac"}]
 
 
-print(person_info)
+def add(full_name, phone_number, email, job_title, room_number, skype):
+    person_info.append({"full_name": full_name, "phone_number": phone_number,
+                        "email": email, "job_title": job_title, "room_number": room_number, "skype": skype})
+    print(person_info)
+    for i in person_info:
+        print(i)
+
+
+def delete(delete):
+ #todo   person_info.pop(delete)
+
 
 while True:
     menu = ("""
- #   1 = add person
-  #  2 = delete person
-   # 3 = search person
-   # 4 = replace person data
-   # 5 = END
+    1 = add person
+    2 = delete person
+    3 = search person
+    4 = replace person data
+    5 = END
     """)
     print()
-    print(person_info)
     print(menu)
     try:
         choice = int(input("Your choice is (1-5): "))
@@ -191,16 +200,20 @@ while True:
 
     if choice >= 0 or choice <= 5:
         if choice == 1:
-            english_word = input("Enter English word: ")
-            french_word = (input("Enter French word: "))
-            add(english_word, french_word)
+            full_name = input("Enter full_name: ")
+            phone_number = input("Enter phone_number: ")
+            email = input("Enter email: ")
+            job_title = input("Enter job_title: ")
+            room_number = input("Enter room_number: ")
+            skype = input("Enter skype: ")
+            add(full_name, phone_number, email, job_title, room_number, skype)
 
         if choice == 2:
-            delete_item = input("Enter English for delete: ")
-            if delete_item in dictionary:
-                delete(delete_item)
+            delete_person = input("Enter full name of person for delete: ")
+  #todo          if delete_person in person_info:
+                delete(delete_person)
             else:
-                print(f"{delete_item} is in´t in dictionary")
+                print(f"{delete_person} is in´t in dictionary")
 
         if choice == 3:
             search()
