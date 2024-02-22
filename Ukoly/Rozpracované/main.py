@@ -1,35 +1,29 @@
-
-
-"""Create an app Company. Store the following information
-about a person: full name, phone number, corporate email,
-job title, room number, skype. Provide the possibility to add,
-delete, search, and replace data. Use a dictionary to store
-information."""
-
 person_info = [{"full_name": "Milan Sadilek", "phone_number": 777234535,
 "email": "milansadilek@post.cz", "job_title": "Bussines manager", "room_number":  777,
 "skype": "milan_sadilek"},
 {"full_name": "Miloš Hlavatý", "phone_number": 578952487,
 "email": "hlavaty@email.cz", "job_title": "developer", "room_number":  555,
-"skype": "hlavac"}]
+"skype": "hlavac"},{'full_name': 'aa', 'phone_number': 'aa', 'email': 'aa',
+                    'job_title': 'aa', 'room_number': 'aa', 'skype': 'aa'}]
 
 
+def prt():
+    print(("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"))
+    print(person_info)
+    print(("xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx"))
+    for i in person_info:
+        print(i)
+prt()
 
-full_name = "aaaaa"
-phone_number = 123456
-email = "my email: "
-job_title = "good job: "
-room_number = 555
-skype = "skyyyype"
+delete_person = input("Enter full name of person for delete: ")
+if delete_person in (for _ in person_info):
+    print(delete_person)
+    prt()
+else:
+    pass
 
-# full_name, phone_number, email, job_title, room_number, skype
-
-
-person_info.append({"full_name": full_name, "phone_number": phone_number,
-"email": email, "job_title": job_title, "room_number": room_number, "skype": skype})
-print(person_info)
-
-for i in person_info:
-    print(i)
-
-#({[full_name] = new_full_name})
+print("Ahoj, jak se jmenuješ?")
+jmeno = input()
+print("Jaký jsi??")
+vlastnost = input()
+print(f"{jmeno} je {vlastnost}")

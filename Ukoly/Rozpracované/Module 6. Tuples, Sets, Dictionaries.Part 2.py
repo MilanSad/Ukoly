@@ -173,12 +173,16 @@ person_info = [{"full_name": "Milan Sadilek", "phone_number": 777234535,
 def add(full_name, phone_number, email, job_title, room_number, skype):
     person_info.append({"full_name": full_name, "phone_number": phone_number,
                         "email": email, "job_title": job_title, "room_number": room_number, "skype": skype})
+    print_person_info()
+
+def print_person_info():
     print(person_info)
     for i in person_info:
         print(i)
 
 
 def delete(delete):
+    pass
  #todo   person_info.pop(delete)
 
 
@@ -210,8 +214,9 @@ while True:
 
         if choice == 2:
             delete_person = input("Enter full name of person for delete: ")
-  #todo          if delete_person in person_info:
+            if delete_person in person_info:
                 delete(delete_person)
+                print(person_info)
             else:
                 print(f"{delete_person} is in´t in dictionary")
 
